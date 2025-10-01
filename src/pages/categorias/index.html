@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Categorias - Swift</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="categorias-page">
+    <header class="header">
+      <div class="header-container mx-auto">
+        <div class="search-container me-3">
+          <div class="search-bar">
+            <button class="search-icon me-3" id="searchIcon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <input
+              type="text"
+              id="searchInput"
+              class="search-input"
+              placeholder="Da um Swift..."
+            />
+            <button class="microphone-icon ms-3" id="microphoneIcon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 1C10.34 1 9 2.34 9 4V12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12V4C15 2.34 13.66 1 12 1Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M19 10V12C19 15.87 15.87 19 12 19C8.13 19 5 15.87 5 12V10"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <line
+                  x1="12"
+                  y1="19"
+                  x2="12"
+                  y2="23"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <line
+                  x1="8"
+                  y1="23"
+                  x2="16"
+                  y2="23"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <button class="notification-icon" id="notificationIcon">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6945 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3055 21.9044 11.0018 21.7295C10.6981 21.5547 10.4458 21.3031 10.27 21"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="notification-badge" id="notificationBadge">3</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="notifications-sidebar" id="notificationsSidebar">
+      <div class="sidebar-header">
+        <button class="back-button" id="backButton">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 12H5M12 19L5 12L12 5"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <h2 class="sidebar-title">Notificações</h2>
+        <button class="bell-icon" id="sidebarBellIcon">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6945 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3055 21.9044 11.0018 21.7295C10.6981 21.5547 10.4458 21.3031 10.27 21"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div class="notifications-content">
+        <div class="notification-card mb-3">
+          <div class="notification-title mb-2">Seu pedido foi enviado</div>
+          <div class="notification-description mb-2">
+            Seu pedido #12345 foi enviado e está chegando até você!
+          </div>
+          <div class="notification-time">2h ago</div>
+        </div>
+
+        <div class="notification-card mb-3">
+          <div class="notification-title mb-2">Seu pedido foi enviado</div>
+          <div class="notification-description mb-2">
+            Seu pedido #12346 foi enviado e está chegando até você!
+          </div>
+          <div class="notification-time">4h ago</div>
+        </div>
+
+        <div class="notification-card mb-3">
+          <div class="notification-title mb-2">Seu pedido foi enviado</div>
+          <div class="notification-description mb-2">
+            Seu pedido #12347 foi enviado e está chegando até você!
+          </div>
+          <div class="notification-time">6h ago</div>
+        </div>
+
+        <div class="notification-card mb-3">
+          <div class="notification-title mb-2">Seu pedido foi enviado</div>
+          <div class="notification-description mb-2">
+            Seu pedido #12348 foi enviado e está chegando até você!
+          </div>
+          <div class="notification-time">1d ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="main-content mx-auto">
+      <!-- Seção Últimos Pedidos -->
+      <section class="ultimos-pedidos-section mb-4">
+        <h2 class="section-title mb-3">Últimos pedidos</h2>
+        <div id="carouselUltimosPedidos" class="carousel slide">
+          <!-- Indicadores -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselUltimosPedidos" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselUltimosPedidos" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselUltimosPedidos" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          
+          <!-- Slides -->
+          <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+              <div class="pedido-card">
+                <div class="pedido-image">
+                  <img
+                    src="../../../src/assets/images/swift_logo.png"
+                    alt="Produto"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="pedido-info">
+                  <h3 class="pedido-title">3 Linguiça Toscana Swift 700G</h3>
+                  <div class="pedido-buttons">
+                    <button class="btn btn-success btn-sm me-2">
+                      Pedido On-line
+                    </button>
+                    <button class="btn btn-warning btn-sm">Peça Novamente</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+              <div class="pedido-card">
+                <div class="pedido-image">
+                  <img
+                    src="../../../src/assets/images/swift_logo.png"
+                    alt="Produto"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="pedido-info">
+                  <h3 class="pedido-title">2 Picanha Swift 1KG</h3>
+                  <div class="pedido-buttons">
+                    <button class="btn btn-success btn-sm me-2">
+                      Pedido On-line
+                    </button>
+                    <button class="btn btn-warning btn-sm">Peça Novamente</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+              <div class="pedido-card">
+                <div class="pedido-image">
+                  <img
+                    src="../../../src/assets/images/swift_logo.png"
+                    alt="Produto"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="pedido-info">
+                  <h3 class="pedido-title">1 Costela de Porco 2KG</h3>
+                  <div class="pedido-buttons">
+                    <button class="btn btn-success btn-sm me-2">
+                      Pedido On-line
+                    </button>
+                    <button class="btn btn-warning btn-sm">Peça Novamente</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Controles de navegação -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselUltimosPedidos" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselUltimosPedidos" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Seção Categorias -->
+      <section class="categorias-section">
+        <h2 class="section-title text-center mb-4">Categorias</h2>
+        <div class="row g-3">
+          <!-- Categoria Bovinos -->
+          <div class="col-6">
+            <div class="categoria-card">
+              <div class="categoria-image">
+                <img
+                  src="../../../src/assets/images/swift_logo.png"
+                  alt="Bovinos"
+                  class="img-fluid"
+                />
+              </div>
+              <h3 class="categoria-title">BOVINOS</h3>
+            </div>
+          </div>
+
+          <!-- Categoria Suínos -->
+          <div class="col-6">
+            <div class="categoria-card">
+              <div class="categoria-image">
+                <img
+                  src="../../../src/assets/images/swift_logo.png"
+                  alt="Suínos"
+                  class="img-fluid"
+                />
+              </div>
+              <h3 class="categoria-title">SUÍNOS</h3>
+            </div>
+          </div>
+
+          <!-- Categoria Aves -->
+          <div class="col-6">
+            <div class="categoria-card">
+              <div class="categoria-image">
+                <img
+                  src="../../../src/assets/images/swift_logo.png"
+                  alt="Aves"
+                  class="img-fluid"
+                />
+              </div>
+              <h3 class="categoria-title">AVES</h3>
+            </div>
+          </div>
+
+          <!-- Categoria Peixes -->
+          <div class="col-6">
+            <div class="categoria-card">
+              <div class="categoria-image">
+                <img
+                  src="../../../src/assets/images/swift_logo.png"
+                  alt="Peixes"
+                  class="img-fluid"
+                />
+              </div>
+              <h3 class="categoria-title">PEIXES</h3>
+            </div>
+          </div>
+
+          <!-- Categoria Embutidos -->
+          <div class="col-6">
+            <div class="categoria-card">
+              <div class="categoria-image">
+                <img
+                  src="../../../src/assets/images/swift_logo.png"
+                  alt="Embutidos"
+                  class="img-fluid"
+                />
+              </div>
+              <h3 class="categoria-title">EMBUTIDOS</h3>
+            </div>
+          </div>
+
+          <!-- Categoria Especiais -->
+          <div class="col-6">
+            <div class="categoria-card">
+              <div class="categoria-image">
+                <img
+                  src="../../../src/assets/images/swift_logo.png"
+                  alt="Especiais"
+                  class="img-fluid"
+                />
+              </div>
+              <h3 class="categoria-title">ESPECIAIS</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-nav">
+      <nav class="nav-container">
+        <a href="../home/index.html" class="nav-item" id="navHome">
+          <div class="nav-icon mb-1">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M9 22V12H15V22"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <span class="nav-label">Home</span>
+        </a>
+
+        <a
+          href="../categorias/index.html"
+          class="nav-item active"
+          id="navCategorias"
+        >
+          <div class="nav-icon mb-1">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="3"
+                y="3"
+                width="7"
+                height="7"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <rect
+                x="14"
+                y="3"
+                width="7"
+                height="7"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <rect
+                x="14"
+                y="14"
+                width="7"
+                height="7"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <rect
+                x="3"
+                y="14"
+                width="7"
+                height="7"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <span class="nav-label">Categorias</span>
+        </a>
+
+        <a href="../carrinho/index.html" class="nav-item" id="navCarrinho">
+          <div class="nav-icon mb-1">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="9"
+                cy="21"
+                r="1"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <circle
+                cx="20"
+                cy="21"
+                r="1"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <span class="nav-label">Carrinho</span>
+        </a>
+
+        <a href="../perfil/index.html" class="nav-item" id="navPerfil">
+          <div class="nav-icon mb-1">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <circle
+                cx="12"
+                cy="7"
+                r="4"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <span class="nav-label">Perfil</span>
+        </a>
+      </nav>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
