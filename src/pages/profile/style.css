@@ -1,0 +1,107 @@
+:root {
+    --primary-color: #FF6B35;
+    --secondary-color: #D9D9D9;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #F2F2F2;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100dvh;
+    background-color: var(--light-color) !important;
+}
+
+.header00 {
+    height: 40vh;
+
+}
+
+.header01 {
+    background-color: #FF6B35;
+    height: 20vh;
+    margin: auto;
+    position: relative;
+
+
+}
+.logo{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: var(--light-color);
+
+}
+.header02 {
+    background-color: var(--light-color);
+}
+
+
+
+.menu {
+    width: auto;
+    height: 100vh;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    height: 7vh;
+    transition: background-color 0.2s;;
+    max-width: 800px;
+    margin: 0 auto 10px auto;
+}
+
+.orangeOutline{
+    border: 1px solid #ff6600 !important;
+    border-radius: 8px !important;
+}
+
+.menu-item:hover {
+    background-color: rgba(0, 0, 0, .05);
+}
+
+.menu-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon {
+    color: #ff6600;
+    font-size: 18px;
+}
+
+.arrow {
+    color: #ff6600;
+    font-size: 18px;
+}
+
+
+.logout{
+    background-color: var(--light-color) ;
+    color: #FF6B35 !important;
+
+
+}
+.logout:hover{
+    background-color: #FF6B35 !important;
+    color: var(--light-color) !important;
+
+}
+
