@@ -201,10 +201,194 @@
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <main class="main-content mx-auto">
-      <div class="content-container">
-        <h1 class="mb-4">Bem-vindo ao Swift!</h1>
-        <p>Esta é a página inicial do aplicativo.</p>
-      </div>
+      <!-- Carrossel Promocional -->
+      <section class="carousel-section mb-4">
+        <div class="carousel-container mx-auto">
+          <div class="carousel-slide active">
+            <div class="carousel-content">
+              <h2>Encontre uma loja Swift perto de você</h2>
+              <p>Descubra as melhores ofertas e produtos frescos na sua região</p>
+              <button class="carousel-btn">Buscar Lojas</button>
+            </div>
+            <div class="carousel-graphic">
+              <div class="swift-logo">Swift</div>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Produtos frescos todos os dias</h2>
+              <p>Qualidade garantida e entrega rápida na sua casa</p>
+              <button class="carousel-btn">Ver Produtos</button>
+            </div>
+            <div class="carousel-graphic">
+              <div class="swift-logo">Swift</div>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Ofertas imperdíveis</h2>
+              <p>Economize com nossas promoções especiais</p>
+              <button class="carousel-btn">Ver Ofertas</button>
+            </div>
+            <div class="carousel-graphic">
+              <div class="swift-logo">Swift</div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-prev" id="carouselPrev">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="carousel-next" id="carouselNext">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="carousel-indicators">
+          <span class="indicator active" data-slide="0"></span>
+          <span class="indicator" data-slide="1"></span>
+          <span class="indicator" data-slide="2"></span>
+        </div>
+      </section>
+
+      <!-- Lista de Categorias Horizontal -->
+      <section class="categories-section mb-4">
+        <h3 class="section-title">Categorias</h3>
+        <div class="categories-container">
+          <a href="../categorias/index.html?category=bovinos" class="category-card">
+            <div class="category-image">
+              <img src="../../assets/images/mascote_swift.png" alt="Bovinos" />
+            </div>
+            <span class="category-name">Bovinos</span>
+          </a>
+          <a href="../categorias/index.html?category=linguica" class="category-card">
+            <div class="category-image">
+              <img src="../../assets/images/mascote_swift.png" alt="Linguiça" />
+            </div>
+            <span class="category-name">Linguiça</span>
+          </a>
+          <a href="../categorias/index.html?category=camarao" class="category-card">
+            <div class="category-image">
+              <img src="../../assets/images/mascote_swift.png" alt="Camarão" />
+            </div>
+            <span class="category-name">Camarão</span>
+          </a>
+          <a href="../categorias/index.html?category=frango" class="category-card">
+            <div class="category-image">
+              <img src="../../assets/images/mascote_swift.png" alt="Frango" />
+            </div>
+            <span class="category-name">Frango</span>
+          </a>
+          <a href="../categorias/index.html?category=suinos" class="category-card">
+            <div class="category-image">
+              <img src="../../assets/images/mascote_swift.png" alt="Suínos" />
+            </div>
+            <span class="category-name">Suínos</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Ofertas Especiais -->
+      <section class="offers-section mb-4">
+        <div class="section-header">
+          <h3 class="section-title">Ofertas Especiais</h3>
+          <a href="../categorias/index.html?filter=ofertas" class="see-all-link">Ver tudo</a>
+        </div>
+        <div class="offers-container">
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="../../assets/images/mascote_swift.png" alt="Linguiça Toscana" />
+            </div>
+            <div class="offer-content">
+              <h4 class="offer-title">Linguiça Toscana Swift 700g</h4>
+              <div class="offer-tag">2ª un por R$ 16,90 CADA</div>
+              <div class="offer-price">
+                <span class="current-price">R$ 18,50</span>
+                <span class="price-unit">/unidade</span>
+              </div>
+              <button class="add-btn">Adicionar</button>
+            </div>
+          </div>
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="../../assets/images/mascote_swift.png" alt="Linguiça Toscana" />
+            </div>
+            <div class="offer-content">
+              <h4 class="offer-title">Linguiça Toscana Swift 700g</h4>
+              <div class="offer-tag">2ª un por R$ 16,90 CADA</div>
+              <div class="offer-price">
+                <span class="current-price">R$ 18,50</span>
+                <span class="price-unit">/unidade</span>
+              </div>
+              <button class="add-btn">Adicionar</button>
+            </div>
+          </div>
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="../../assets/images/mascote_swift.png" alt="Frango" />
+            </div>
+            <div class="offer-content">
+              <h4 class="offer-title">Frango Inteiro Swift</h4>
+              <div class="offer-tag">Desconto de 20%</div>
+              <div class="offer-price">
+                <span class="current-price">R$ 19,90</span>
+                <span class="price-unit">/kg</span>
+              </div>
+              <button class="add-btn">Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Compre Novamente -->
+      <section class="buy-again-section mb-4">
+        <h3 class="section-title">Compre Novamente</h3>
+        <div class="buy-again-container">
+          <div class="product-card">
+            <div class="product-image">
+              <img src="../../assets/images/mascote_swift.png" alt="Frango" />
+              <div class="product-badge">✓</div>
+            </div>
+            <div class="product-content">
+              <h4 class="product-title">Frango</h4>
+              <div class="product-price">R$ 19,90 / kg</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="../../assets/images/mascote_swift.png" alt="Carne" />
+              <div class="product-badge">✓</div>
+            </div>
+            <div class="product-content">
+              <h4 class="product-title">Carne</h4>
+              <div class="product-price">R$ 25,90 / kg</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="../../assets/images/mascote_swift.png" alt="Peixe" />
+              <div class="product-badge">✓</div>
+            </div>
+            <div class="product-content">
+              <h4 class="product-title">Peixe</h4>
+              <div class="product-price">R$ 22,90 / kg</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="../../assets/images/mascote_swift.png" alt="Linguiça" />
+              <div class="product-badge">✓</div>
+            </div>
+            <div class="product-content">
+              <h4 class="product-title">Linguiça</h4>
+              <div class="product-price">R$ 18,50 / un</div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer-nav">

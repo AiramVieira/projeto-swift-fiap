@@ -416,4 +416,120 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     carrinhoItem.appendChild(carrinhoBadge);
   }
+
+  const carouselSlides = document.querySelectorAll('.carousel-slide');
+  const carouselPrev = document.getElementById('carouselPrev');
+  const carouselNext = document.getElementById('carouselNext');
+  const carouselIndicators = document.querySelectorAll('.indicator');
+  
+  let currentSlide = 0;
+  const totalSlides = carouselSlides.length;
+
+  function showSlide(index) {
+    // Remove active class from all slides and indicators
+    carouselSlides.forEach(slide => slide.classList.remove('active'));
+    carouselIndicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    // Add active class to current slide and indicator
+    carouselSlides[index].classList.add('active');
+    carouselIndicators[index].classList.add('active');
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  function goToSlide(index) {
+    currentSlide = index;
+    showSlide(currentSlide);
+  }
+
+  if (carouselNext) {
+    carouselNext.addEventListener('click', nextSlide);
+  }
+
+  if (carouselPrev) {
+    carouselPrev.addEventListener('click', prevSlide);
+  }
+
+  carouselIndicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => goToSlide(index));
+  });
+
+  let carouselInterval = setInterval(nextSlide, 5000);
+
+  const carouselSection = document.querySelector('.carousel-section');
+  if (carouselSection) {
+    carouselSection.addEventListener('mouseenter', () => {
+      clearInterval(carouselInterval);
+    });
+
+    carouselSection.addEventListener('mouseleave', () => {
+      carouselInterval = setInterval(nextSlide, 5000);
+    });
+  }
+
+  const addButtons = document.querySelectorAll('.add-btn');
+  addButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      this.style.transform = 'scale(0.95)';
+      this.textContent = 'Adicionado!';
+      this.style.background = 'var(--bs-success)';
+      
+      setTimeout(() => {
+        this.style.transform = 'scale(1)';
+        this.textContent = 'Adicionar';
+        this.style.background = 'var(--primary-color)';
+      }, 1000);
+
+      showToast('Produto adicionado ao carrinho!', 'success');
+      
+      const carrinhoBadge = document.querySelector('.carrinho-badge');
+      if (carrinhoBadge) {
+        const currentCount = parseInt(carrinhoBadge.textContent) || 0;
+        carrinhoBadge.textContent = currentCount + 1;
+      }
+    });
+  });
+
+  const categoryCards = document.querySelectorAll('.category-card');
+  categoryCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-4px)';
+    });
+
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+    });
+  });
+
+  const productCards = document.querySelectorAll('.product-card');
+  productCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-2px)';
+    });
+
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+    });
+  });
+
+  const offerCards = document.querySelectorAll('.offer-card');
+  offerCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-4px)';
+    });
+
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+    });
+  });
 });
