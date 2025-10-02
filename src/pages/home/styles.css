@@ -640,11 +640,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .notifications-sidebar {
-    width: 100%;
-    max-width: 100%;
-  }
-
   .sidebar-header {
     padding: 15px;
   }

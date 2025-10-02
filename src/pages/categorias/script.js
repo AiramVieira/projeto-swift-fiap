@@ -43,10 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       microphoneIcon.title = "Gravar voz";
       microphoneIcon.classList.remove("recording");
 
-      showToast(
-        "Erro no reconhecimento de voz. Tente novamente.",
-        "error"
-      );
+      showToast("Erro no reconhecimento de voz. Tente novamente.", "error");
     };
   }
 
@@ -57,47 +54,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
     searchBar.classList.add("loading");
 
+    const categoriaCards = document.querySelectorAll(".categoria-card");
+    categoriaCards.forEach((card) => {
+      const categoriaTitle = card
+        .querySelector(".categoria-title")
+        .textContent.toLowerCase();
+      const matches = categoriaTitle
+        .toLowerCase()
+        .replace(/\W+/g, "")
+        .includes(query.toLowerCase().replace(/\s+/g, ""));
+
+      if (matches) {
+        card.style.display = "block";
+        card.style.animation = "fadeInUp 0.5s ease-out";
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    const visibleCards = Array.from(categoriaCards).filter(
+      (card) => card.style.display !== "none"
+    );
+
+    if (visibleCards.length === 0) {
+      showNoResultsMessage(query);
+    } else {
+      hideNoResultsMessage();
+    }
+
     setTimeout(() => {
       searchBar.classList.remove("loading");
 
-      const results = simulateSearchResults(query);
-      displaySearchResults(results);
-
       showToast(
-        `${results.length} resultados encontrados para "${query}"`,
+        `${visibleCards.length} categorias encontradas para "${query}"`,
         "success"
       );
     }, 1000);
   }
 
-  function simulateSearchResults(query) {
-    const mockResults = [
-      {
-        id: 1,
-        title: "Resultado 1",
-        description: "Descrição do primeiro resultado",
-      },
-      {
-        id: 2,
-        title: "Resultado 2",
-        description: "Descrição do segundo resultado",
-      },
-      {
-        id: 3,
-        title: "Resultado 3",
-        description: "Descrição do terceiro resultado",
-      },
-    ];
-
-    return mockResults.filter(
-      (result) =>
-        result.title.toLowerCase().includes(query.toLowerCase()) ||
-        result.description.toLowerCase().includes(query.toLowerCase())
-    );
+  function showNoResultsMessage(query) {
+    let noResultsDiv = document.getElementById("noResultsMessage");
+    if (!noResultsDiv) {
+      noResultsDiv = document.createElement("div");
+      noResultsDiv.id = "noResultsMessage";
+      noResultsDiv.className = "alert alert-info text-center mt-4";
+      noResultsDiv.innerHTML = `
+        <h4>Nenhuma categoria encontrada</h4>
+        <p>Não encontramos categorias para "<strong>${query}</strong>"</p>
+        <button class="btn btn-outline-primary btn-sm" onclick="clearSearch()">Limpar busca</button>
+      `;
+      document.querySelector(".categorias-section").appendChild(noResultsDiv);
+    }
   }
 
-  function displaySearchResults(results) {
-    console.log("Resultados da busca:", results);
+  function hideNoResultsMessage() {
+    const noResultsDiv = document.getElementById("noResultsMessage");
+    if (noResultsDiv) {
+      noResultsDiv.remove();
+    }
   }
 
   function getColor(color) {
@@ -161,10 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   microphoneIcon.addEventListener("click", function () {
     if (!recognition) {
-      showToast(
-        "Reconhecimento de voz não suportado neste navegador",
-        "error"
-      );
+      showToast("Reconhecimento de voz não suportado neste navegador", "error");
       return;
     }
 
@@ -301,7 +312,7 @@ document.addEventListener("DOMContentLoaded", function () {
         randomNotification.time
       );
     }
-  }, 30000);
+  }, 1000);
 
   document.addEventListener("keydown", function (e) {
     if ((e.ctrlKey || e.metaKey) && e.key === "k") {
@@ -313,6 +324,13 @@ document.addEventListener("DOMContentLoaded", function () {
   searchInput.addEventListener("input", function () {
     if (this.value === "") {
       console.log("Campo de busca limpo");
+      // Limpar filtros das categorias
+      const categoriaCards = document.querySelectorAll(".categoria-card");
+      categoriaCards.forEach((card) => {
+        card.style.display = "block";
+        card.style.animation = "fadeInUp 0.5s ease-out";
+      });
+      hideNoResultsMessage();
     }
   });
 
@@ -323,7 +341,6 @@ document.addEventListener("DOMContentLoaded", function () {
   searchInput.addEventListener("blur", function () {
     searchBar.style.transform = "scale(1)";
   });
-
 
   function updateNotificationBadge(count) {
     if (count > 0) {
@@ -416,4 +433,121 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     carrinhoItem.appendChild(carrinhoBadge);
   }
+
+  // Funcionalidades específicas das categorias
+  const categoriaCards = document.querySelectorAll(".categoria-card");
+  const pedidoButtons = document.querySelectorAll(".pedido-buttons .btn");
+
+  // Configurar cards de categoria
+  categoriaCards.forEach((card, index) => {
+    card.addEventListener("click", function () {
+      const categoria = this.querySelector(".categoria-title").textContent;
+      navigateToCategoria(categoria);
+    });
+
+    card.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        this.click();
+      }
+    });
+
+    // Adicionar atributos de acessibilidade
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("role", "button");
+    card.setAttribute(
+      "aria-label",
+      `Categoria ${card.querySelector(".categoria-title").textContent}`
+    );
+  });
+
+  // Configurar botões de pedidos
+  pedidoButtons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const action = this.textContent.trim();
+      const pedidoCard = this.closest(".pedido-card");
+      const pedidoTitle = pedidoCard.querySelector(".pedido-title").textContent;
+
+      handlePedidoAction(action, pedidoTitle);
+    });
+  });
+
+  // Função para navegar para categoria
+  function navigateToCategoria(categoria) {
+    console.log("Navegando para categoria:", categoria);
+
+    // Adicionar efeito de loading
+    const card = event.target.closest(".categoria-card");
+    if (card) {
+      card.style.opacity = "0.7";
+      card.style.transform = "scale(0.95)";
+    }
+
+    // Simular navegação
+    setTimeout(() => {
+      // Aqui você pode redirecionar para a página da categoria
+      // window.location.href = `../produtos/index.html?categoria=${categoria.toLowerCase()}`;
+      showToast(`Navegando para categoria: ${categoria}`, "info");
+
+      // Restaurar estado do card
+      if (card) {
+        card.style.opacity = "1";
+        card.style.transform = "scale(1)";
+      }
+    }, 300);
+  }
+
+  // Função para lidar com ações de pedidos
+  function handlePedidoAction(action, pedidoTitle) {
+    console.log("Ação do pedido:", action, "para:", pedidoTitle);
+
+    if (action.includes("Peça Novamente")) {
+      // Adicionar ao carrinho
+      addToCart(pedidoTitle);
+    } else if (action.includes("Pedido On-line")) {
+      // Ver status do pedido
+      checkOrderStatus(pedidoTitle);
+    }
+  }
+
+  // Função para adicionar ao carrinho
+  function addToCart(pedidoTitle) {
+    // Simular adição ao carrinho
+    const button = event.target;
+    const originalText = button.textContent;
+
+    button.textContent = "Adicionado!";
+    button.classList.remove("btn-warning");
+    button.classList.add("btn-success");
+    button.disabled = true;
+
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove("btn-success");
+      button.classList.add("btn-warning");
+      button.disabled = false;
+    }, 2000);
+
+    // Mostrar notificação
+    showToast("Produto adicionado ao carrinho!", "success");
+  }
+
+  // Função para verificar status do pedido
+  function checkOrderStatus(pedidoTitle) {
+    showToast("Verificando status do pedido...", "info");
+
+    // Simular verificação
+    setTimeout(() => {
+      showToast("Pedido em trânsito!", "success");
+    }, 1500);
+  }
+
+  // Função global para limpar busca (chamada pelo botão)
+  window.clearSearch = function () {
+    if (searchInput) {
+      searchInput.value = "";
+      searchInput.dispatchEvent(new Event("input"));
+    }
+  };
 });
