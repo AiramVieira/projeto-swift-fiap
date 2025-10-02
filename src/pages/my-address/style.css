@@ -1,0 +1,51 @@
+body {
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  padding-bottom: 60px; 
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+.header h5 {
+  margin: 0;
+  font-weight: bold;
+}
+.address-card {
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
+}
+.address-title {
+  color: #e74c3c;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.address-actions i {
+  font-size: 1.2rem;
+  color: #e74c3c;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #ddd;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 0;
+}
+.bottom-nav .nav-item {
+  text-align: center;
+  font-size: 0.9rem;
+  flex: 1;
+}
+.bottom-nav .active {
+  color: #e74c3c;
+  font-weight: bold;
+}
