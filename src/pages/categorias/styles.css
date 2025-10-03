@@ -23,13 +23,11 @@
   --bs-dark: #212529;
   --bs-dark-rgb: 33, 37, 41;
 
-  /* Cores de texto */
   --text-color: #212529;
   --text-light: #6c757d;
   --text-muted: #6c757d;
   --white: #ffffff;
 
-  /* Cores de fundo */
   --background-color: #f8f9fa;
   --search-bg: #f8f9fa;
   --search-hover-bg: #e9ecef;
@@ -378,7 +376,6 @@ body {
   opacity: 0.7;
 }
 
-/* ===== CONTROLES DO CAROUSEL ===== */
 #carouselUltimosPedidos .carousel-control-prev,
 #carouselUltimosPedidos .carousel-control-next {
   width: 50px;

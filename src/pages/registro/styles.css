@@ -23,36 +23,29 @@
   --bs-dark: #212529;
   --bs-dark-rgb: 33, 37, 41;
 
-  /* Cores de texto */
   --text-color: #212529;
   --text-light: #6c757d;
   --text-muted: #6c757d;
   --white: #ffffff;
 
-  /* Cores de fundo */
   --background-color: #f8f9fa;
   --search-bg: #f8f9fa;
   --search-hover-bg: #e9ecef;
   --notification-bg: #f8f9fa;
   --overlay-bg: rgba(0, 0, 0, 0.5);
 
-  /* Cores de estado */
   --danger-color: #dc3545;
 
-  /* Bordas e raios */
   --border-color: #dee2e6;
   --border-radius: 8px;
   --border-radius-lg: 12px;
 
-  /* Sombras */
   --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-  /* Scrollbar */
   --scrollbar-track: #f1f1f1;
   --scrollbar-thumb: #c1c1c1;
   --scrollbar-thumb-hover: #a8a8a8;
 
-  /* Transições */
   --delay: 0.3s;
   --transition: all 0.3s ease;
 }
@@ -114,7 +107,6 @@ body {
   text-decoration: none;
 }
 
-/* Estilos específicos para a página de registro */
 .register-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -181,7 +173,6 @@ body {
   color: var(--text-muted) !important;
 }
 
-/* Validação de formulário */
 .form-control.is-invalid {
   border-color: var(--danger-color);
 }

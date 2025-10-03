@@ -426,11 +426,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const totalSlides = carouselSlides.length;
 
   function showSlide(index) {
-    // Remove active class from all slides and indicators
     carouselSlides.forEach(slide => slide.classList.remove('active'));
     carouselIndicators.forEach(indicator => indicator.classList.remove('active'));
     
-    // Add active class to current slide and indicator
     carouselSlides[index].classList.add('active');
     carouselIndicators[index].classList.add('active');
   }
