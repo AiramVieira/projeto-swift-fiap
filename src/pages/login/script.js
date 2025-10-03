@@ -111,10 +111,10 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(() => {
         console.log("Tentativa de login:", { email, password });
 
-        const loginSuccess = Math.random() > 0.3; // 70% de chance de sucesso para demonstração
+        const loginSuccess = Math.random() > 0.3;
 
         if (loginSuccess) {
-          alert("Login realizado com sucesso!");
+          window.location.href = "../home/index.html";
         } else {
           alert("Email ou senha incorretos. Tente novamente.");
         }

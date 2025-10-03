@@ -324,7 +324,6 @@ document.addEventListener("DOMContentLoaded", function () {
   searchInput.addEventListener("input", function () {
     if (this.value === "") {
       console.log("Campo de busca limpo");
-      // Limpar filtros das categorias
       const categoriaCards = document.querySelectorAll(".categoria-card");
       categoriaCards.forEach((card) => {
         card.style.display = "block";
@@ -434,11 +433,9 @@ document.addEventListener("DOMContentLoaded", function () {
     carrinhoItem.appendChild(carrinhoBadge);
   }
 
-  // Funcionalidades específicas das categorias
   const categoriaCards = document.querySelectorAll(".categoria-card");
   const pedidoButtons = document.querySelectorAll(".pedido-buttons .btn");
 
-  // Configurar cards de categoria
   categoriaCards.forEach((card, index) => {
     card.addEventListener("click", function () {
       const categoria = this.querySelector(".categoria-title").textContent;
@@ -452,7 +449,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Adicionar atributos de acessibilidade
     card.setAttribute("tabindex", "0");
     card.setAttribute("role", "button");
     card.setAttribute(
@@ -461,7 +457,6 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   });
 
-  // Configurar botões de pedidos
   pedidoButtons.forEach((button) => {
     button.addEventListener("click", function (e) {
       e.stopPropagation();
@@ -473,24 +468,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Função para navegar para categoria
   function navigateToCategoria(categoria) {
     console.log("Navegando para categoria:", categoria);
 
-    // Adicionar efeito de loading
     const card = event.target.closest(".categoria-card");
     if (card) {
       card.style.opacity = "0.7";
       card.style.transform = "scale(0.95)";
     }
 
-    // Simular navegação
     setTimeout(() => {
-      // Aqui você pode redirecionar para a página da categoria
-      // window.location.href = `../produtos/index.html?categoria=${categoria.toLowerCase()}`;
       showToast(`Navegando para categoria: ${categoria}`, "info");
 
-      // Restaurar estado do card
       if (card) {
         card.style.opacity = "1";
         card.style.transform = "scale(1)";
@@ -498,22 +487,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   }
 
-  // Função para lidar com ações de pedidos
   function handlePedidoAction(action, pedidoTitle) {
     console.log("Ação do pedido:", action, "para:", pedidoTitle);
 
     if (action.includes("Peça Novamente")) {
-      // Adicionar ao carrinho
       addToCart(pedidoTitle);
     } else if (action.includes("Pedido On-line")) {
-      // Ver status do pedido
       checkOrderStatus(pedidoTitle);
     }
   }
 
-  // Função para adicionar ao carrinho
   function addToCart(pedidoTitle) {
-    // Simular adição ao carrinho
     const button = event.target;
     const originalText = button.textContent;
 
@@ -529,21 +513,17 @@ document.addEventListener("DOMContentLoaded", function () {
       button.disabled = false;
     }, 2000);
 
-    // Mostrar notificação
     showToast("Produto adicionado ao carrinho!", "success");
   }
 
-  // Função para verificar status do pedido
   function checkOrderStatus(pedidoTitle) {
     showToast("Verificando status do pedido...", "info");
 
-    // Simular verificação
     setTimeout(() => {
       showToast("Pedido em trânsito!", "success");
     }, 1500);
   }
 
-  // Função global para limpar busca (chamada pelo botão)
   window.clearSearch = function () {
     if (searchInput) {
       searchInput.value = "";

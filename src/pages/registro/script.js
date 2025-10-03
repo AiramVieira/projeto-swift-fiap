@@ -293,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function () {
           password,
         });
 
-        const registerSuccess = Math.random() > 0.2; // 80% de chance de sucesso para demonstração
+        const registerSuccess = Math.random() > 0.2;
 
         if (registerSuccess) {
           alert("Usuário criado com sucesso!");

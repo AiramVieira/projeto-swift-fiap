@@ -67,12 +67,10 @@ body {
 .map-link {
     text-decoration: none;
     color: #000;
-    /* Preto */
     font-size: 14px;
     display: flex;
     align-items: center;
     gap: 5px;
-    /* espaço entre ícone e texto */
 }
 
 .star {
