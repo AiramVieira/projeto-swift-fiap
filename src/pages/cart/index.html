@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home - Swift</title>
-    <link rel="stylesheet" href="../../../styles.css" />
+    <title>Carrinho - Swift</title>
     <link rel="stylesheet" href="styles.css" />
 
     <link
@@ -14,7 +13,7 @@
       crossorigin="anonymous"
     />
   </head>
-  <body class="home-page">
+  <body class="cart-page">
     <header class="header">
       <div class="header-container mx-auto">
         <div class="search-container me-3">
@@ -201,216 +200,126 @@
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <main class="main-content mx-auto">
-      <section class="carousel-section mb-4">
-        <div class="carousel-container mx-auto">
-          <div class="carousel-slide active">
-            <div class="carousel-content">
-              <h2>Encontre uma loja Swift perto de você</h2>
-              <p>
-                Descubra as melhores ofertas e produtos frescos na sua região
-              </p>
-              <button class="carousel-btn">Buscar Lojas</button>
-            </div>
-          </div>
-          <div class="carousel-slide">
-            <div class="carousel-content">
-              <h2>Produtos frescos todos os dias</h2>
-              <p>Qualidade garantida e entrega rápida na sua casa</p>
-              <button class="carousel-btn">Ver Produtos</button>
-            </div>
-          </div>
-          <div class="carousel-slide">
-            <div class="carousel-content">
-              <h2>Ofertas imperdíveis</h2>
-              <p>Economize com nossas promoções especiais</p>
-              <button class="carousel-btn">Ver Ofertas</button>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-controls">
-          <button class="carousel-prev" id="carouselPrev">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M15 18L9 12L15 6"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-          <button class="carousel-next" id="carouselNext">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M9 18L15 12L9 6"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
-        <div class="carousel-indicators">
-          <span class="indicator active" data-slide="0"></span>
-          <span class="indicator" data-slide="1"></span>
-          <span class="indicator" data-slide="2"></span>
-        </div>
-      </section>
-
-      <section class="categories-section mb-4">
-        <h3 class="section-title">Categorias</h3>
-        <div class="categories-container">
-          <a
-            href="../categorias/index.html?category=bovinos"
-            class="category-card"
-          >
-            <div class="category-image">
-              <img src="../../assets/images/mascote_swift.png" alt="Bovinos" />
-            </div>
-            <span class="category-name">Bovinos</span>
-          </a>
-          <a
-            href="../categorias/index.html?category=linguica"
-            class="category-card"
-          >
-            <div class="category-image">
-              <img src="../../assets/images/mascote_swift.png" alt="Linguiça" />
-            </div>
-            <span class="category-name">Linguiça</span>
-          </a>
-          <a
-            href="../categorias/index.html?category=camarao"
-            class="category-card"
-          >
-            <div class="category-image">
-              <img src="../../assets/images/mascote_swift.png" alt="Camarão" />
-            </div>
-            <span class="category-name">Camarão</span>
-          </a>
-          <a
-            href="../categorias/index.html?category=frango"
-            class="category-card"
-          >
-            <div class="category-image">
-              <img src="../../assets/images/mascote_swift.png" alt="Frango" />
-            </div>
-            <span class="category-name">Frango</span>
-          </a>
-          <a
-            href="../categorias/index.html?category=suinos"
-            class="category-card"
-          >
-            <div class="category-image">
-              <img src="../../assets/images/mascote_swift.png" alt="Suínos" />
-            </div>
-            <span class="category-name">Suínos</span>
-          </a>
-        </div>
-      </section>
-
-      <section class="offers-section mb-4">
-        <div class="section-header">
-          <h3 class="section-title">Ofertas Especiais</h3>
-          <a href="../categorias/index.html?filter=ofertas" class="see-all-link"
-            >Ver tudo</a
-          >
-        </div>
-        <div class="offers-container">
-          <div class="offer-card">
-            <div class="offer-image">
-              <img
-                src="../../assets/images/mascote_swift.png"
-                alt="Linguiça Toscana"
-              />
-            </div>
-            <div class="offer-content">
-              <h4 class="offer-title">Linguiça Toscana Swift 700g</h4>
-              <div class="offer-tag">2ª un por R$ 16,90 CADA</div>
-              <div class="offer-price">
-                <span class="current-price">R$ 18,50</span>
-                <span class="price-unit">/unidade</span>
+      <section class="cart-section mb-4">
+        <h2 class="section-title mb-3">Carrinho de Compras</h2>
+        <div class="product-list">
+          <div class="product-card mb-3">
+            <div class="row align-items-center">
+              <div class="col-3">
+                <img
+                  src="../../assets/images/picanha.jpg"
+                  alt="Picanha"
+                  class="product-image img-fluid rounded"
+                />
               </div>
-              <button class="add-btn">Adicionar</button>
+              <div class="col-6">
+                <div class="product-info">
+                  <h3 class="product-name mb-1">Picanha 1KG</h3>
+                  <p class="product-price mb-0">R$19,90</p>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="quantity-control">
+                  <button class="quantity-button btn btn-outline-secondary btn-sm">−</button>
+                  <span class="quantity mx-2">1</span>
+                  <button class="quantity-button btn btn-outline-secondary btn-sm">+</button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="offer-card">
-            <div class="offer-image">
-              <img
-                src="../../assets/images/mascote_swift.png"
-                alt="Linguiça Toscana"
-              />
-            </div>
-            <div class="offer-content">
-              <h4 class="offer-title">Linguiça Toscana Swift 700g</h4>
-              <div class="offer-tag">2ª un por R$ 16,90 CADA</div>
-              <div class="offer-price">
-                <span class="current-price">R$ 18,50</span>
-                <span class="price-unit">/unidade</span>
+
+          <div class="product-card mb-3">
+            <div class="row align-items-center">
+              <div class="col-3">
+                <img
+                  src="../../assets/images/avocado-toast.jpg"
+                  alt="Avocado Toast"
+                  class="product-image img-fluid rounded"
+                />
               </div>
-              <button class="add-btn">Adicionar</button>
+              <div class="col-6">
+                <div class="product-info">
+                  <h3 class="product-name mb-1">Avocado Toast Kit</h3>
+                  <p class="product-price mb-0">R$19,90</p>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="quantity-control">
+                  <button class="quantity-button btn btn-outline-secondary btn-sm">−</button>
+                  <span class="quantity mx-2">1</span>
+                  <button class="quantity-button btn btn-outline-secondary btn-sm">+</button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="offer-card">
-            <div class="offer-image">
-              <img src="../../assets/images/mascote_swift.png" alt="Frango" />
-            </div>
-            <div class="offer-content">
-              <h4 class="offer-title">Frango Inteiro Swift</h4>
-              <div class="offer-tag">Desconto de 20%</div>
-              <div class="offer-price">
-                <span class="current-price">R$ 19,90</span>
-                <span class="price-unit">/kg</span>
+
+          <div class="product-card mb-3">
+            <div class="row align-items-center">
+              <div class="col-3">
+                <img
+                  src="../../assets/images/avocado-toast.jpg"
+                  alt="Avocado Toast"
+                  class="product-image img-fluid rounded"
+                />
               </div>
-              <button class="add-btn">Adicionar</button>
+              <div class="col-6">
+                <div class="product-info">
+                  <h3 class="product-name mb-1">Avocado Toast Kit</h3>
+                  <p class="product-price mb-0">R$19,90</p>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="quantity-control">
+                  <button class="quantity-button btn btn-outline-secondary btn-sm">−</button>
+                  <span class="quantity mx-2">1</span>
+                  <button class="quantity-button btn btn-outline-secondary btn-sm">+</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section class="buy-again-section mb-4">
-        <h3 class="section-title">Compre Novamente</h3>
-        <div class="buy-again-container">
-          <div class="product-card">
-            <div class="product-image">
-              <img src="../../assets/images/mascote_swift.png" alt="Frango" />
-              <div class="product-badge">✓</div>
-            </div>
-            <div class="product-content">
-              <h4 class="product-title">Frango</h4>
-              <div class="product-price">R$ 19,90 / kg</div>
-            </div>
+        <div class="text-center mt-4">
+          <button class="btn btn-outline-primary">Adicionar Mais Produtos</button>
+        </div>
+
+        <div class="order-summary mt-4">
+          <div class="summary-row d-flex justify-content-between mb-2">
+            <span class="summary-label">Valor total</span>
+            <span class="summary-value">R$61,00</span>
           </div>
-          <div class="product-card">
-            <div class="product-image">
-              <img src="../../assets/images/mascote_swift.png" alt="Carne" />
-              <div class="product-badge">✓</div>
-            </div>
-            <div class="product-content">
-              <h4 class="product-title">Carne</h4>
-              <div class="product-price">R$ 25,90 / kg</div>
-            </div>
+          <div class="summary-row d-flex justify-content-between">
+            <span class="summary-label">Desconto</span>
+            <span class="discount text-danger">-R$1,30</span>
           </div>
-          <div class="product-card">
-            <div class="product-image">
-              <img src="../../assets/images/mascote_swift.png" alt="Peixe" />
-              <div class="product-badge">✓</div>
-            </div>
-            <div class="product-content">
-              <h4 class="product-title">Peixe</h4>
-              <div class="product-price">R$ 22,90 / kg</div>
-            </div>
+        </div>
+
+        <div class="shipping-banner">
+          <svg
+            class="shipping-icon"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"
+            />
+          </svg>
+          <span class="shipping-text">
+            Faltam <strong style="color: #ef4444">R$39,49</strong> para você
+            ganhar frete grátis nas entregas agendadas.
+          </span>
+        </div>
+
+        <div class="footer-checkout">
+          <div class="total-info">
+            <p class="total-label">Total com a entrega</p>
+            <p class="total-value">R$ 59,70</p>
           </div>
-          <div class="product-card">
-            <div class="product-image">
-              <img src="../../assets/images/mascote_swift.png" alt="Linguiça" />
-              <div class="product-badge">✓</div>
-            </div>
-            <div class="product-content">
-              <h4 class="product-title">Linguiça</h4>
-              <div class="product-price">R$ 18,50 / un</div>
-            </div>
-          </div>
+          <button class="checkout-button">Finalizar Pedido</button>
         </div>
       </section>
     </main>
@@ -447,7 +356,7 @@
 
         <a
           href="../categorias/index.html"
-          class="nav-item active"
+          class="nav-item"
           id="navCategorias"
         >
           <div class="nav-icon mb-1">
@@ -503,7 +412,7 @@
           <span class="nav-label">Categorias</span>
         </a>
 
-        <a href="../cart/index.html" class="nav-item" id="navCarrinho">
+        <a href="../cart/index.html" class="nav-item active" id="navCarrinho">
           <div class="nav-icon mb-1">
             <svg
               width="24"
@@ -574,6 +483,11 @@
       </nav>
     </footer>
 
-    <script src="script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js" defer></script>
   </body>
 </html>
