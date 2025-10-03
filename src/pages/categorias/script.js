@@ -389,21 +389,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  function detectCurrentPage() {
-    const currentPath = window.location.pathname;
-
-    if (currentPath.includes("home")) {
-      setActiveNavItem("navHome");
-    } else if (currentPath.includes("categorias")) {
-      setActiveNavItem("navCategorias");
-    } else if (currentPath.includes("carrinho")) {
-      setActiveNavItem("navCarrinho");
-    } else if (currentPath.includes("perfil")) {
-      setActiveNavItem("navPerfil");
-    }
-  }
-
-  detectCurrentPage();
+  // Função detectCurrentPage removida - estado ativo agora é hardcoded no HTML
 
   const carrinhoItem = document.getElementById("navCarrinho");
   if (carrinhoItem) {
